@@ -1,66 +1,62 @@
-// Seleciona todos os botões de navegação e todas as páginas
-const navButtons = document.querySelectorAll('.nav-btn');
-const pages = document.querySelectorAll('.page');
+// Adiciona interatividade para enviar memórias dinamicamente
+const form = document.getElementById('new-memory-form');
+const grid = document.getElementById('memory-grid');
 
-// Função para alternar entre as salas do museu
-function navigateTo(targetId) {
-  // Remove a classe 'active' de todas as páginas e botões
-  pages.forEach(page => page.classList.remove('active'));
-  navButtons.forEach(btn => btn.classList.remove('active'));
-
-  // Ativa a página correspondente
-  const targetPage = document.getElementById(targetId);
-  if (targetPage) {
-    targetPage.classList.add('active');
-  }
-
-  // Ativa o botão correspondente no menu superior
-  const activeBtn = document.querySelector(`.nav-btn[data-target="${targetId}"]`);
-  if (activeBtn) {
-    activeBtn.classList.add('active');
-  }
-
-  // Rola suavemente para o topo
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-// Adiciona evento de clique aos botões do menu
-navButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const target = button.getAttribute('data-target');
-    navigateTo(target);
-  });
-});
-
-// Interatividade da Sala de Memórias
-const memoryForm = document.getElementById('memory-form');
-const memoriesWall = document.getElementById('memories-wall');
-
-if (memoryForm) {
-  memoryForm.addEventListener('submit', function(e) {
+if (form) {
+  form.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const author = document.getElementById('author-input').value.trim();
-    const feeling = document.getElementById('feeling-select').value;
-    const text = document.getElementById('memory-input').value.trim();
+    const name = document.getElementById('visitor-name').value.trim();
+    const feeling = document.getElementById('visitor-feeling').value;
+    const text = document.getElementById('visitor-text').value.trim();
 
-    if (author && text) {
-      // Cria o novo card de memória
-      const note = document.createElement('div');
-      note.classList.add('memory-note');
-      note.style.animation = 'fadeIn 0.5s ease forwards';
+    if (name && text) {
+      // Cria o elemento visual do cartão
+      const card = document.createElement('div');
+      card.classList.add('memory-card');
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(10px)';
+      card.style.transition = 'all 0.5s ease';
 
-      note.innerHTML = `
-        <span class="tag">${feeling}</span>
+      card.innerHTML = `
+        <span class="card-tag">${feeling}</span>
         <p>“${text}”</p>
-        <small>— ${author}</small>
+        <small>— ${name}</small>
       `;
 
-      // Adiciona no início do mural
-      memoriesWall.prepend(note);
+      // Insere no topo da grade
+      grid.prepend(card);
+
+      // Animação suave de entrada
+      setTimeout(() => {
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, 50);
 
       // Limpa o formulário
-      memoryForm.reset();
+      form.reset();
     }
   });
 }
+
+// Destaca o item do menu conforme a rolagem da página
+const sections = document.querySelectorAll('section');
+const navItems = document.querySelectorAll('.nav-item');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    if (pageYOffset >= (sectionTop - 200)) {
+      current = section.getAttribute('id');
+    }
+  });
+
+  navItems.forEach(item => {
+    item.classList.remove('active');
+    if (item.getAttribute('href').includes(current)) {
+      item.classList.add('active');
+    }
+  });
+});
