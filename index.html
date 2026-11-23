@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Museu dos Sentimentos</title>
+  <!-- Fontes elegantes do Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navegação Superior -->
+  <header class="navbar">
+    <div class="logo">Museu dos Sentimentos</div>
+    <nav>
+      <ul class="nav-links">
+        <li><button class="nav-btn active" data-target="inicio">Acervo</button></li>
+        <li><button class="nav-btn" data-target="nostalgia">Nostalgia</button></li>
+        <li><button class="nav-btn" data-target="saudade">Saudade</button></li>
+        <li><button class="nav-btn" data-target="amor">Amor</button></li>
+        <li><button class="nav-btn" data-target="memorias">Memórias</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- PÁGINA 1: INÍCIO / ACERVO -->
+    <section id="inicio" class="page active">
+      <div class="hero">
+        <span class="subtitle">EXPOSIÇÃO PERMANENTE</span>
+        <h1>Onde o que sentimos ganha forma, silêncio e eternidade.</h1>
+        <p>Explore nossas salas dedicadas às emoções humanas mais profundas. Cada ala guarda fragmentos de tempo, afeto e lembrança.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="card" onclick="navigateTo('nostalgia')">
+          <span class="room-number">SALA 01</span>
+          <h2>Nostalgia</h2>
+          <p>O perfume de tardes antigas e a doçura agridoce do que já passou.</p>
+          <span class="explore-link">Entrar na sala &rarr;</span>
+        </div>
+
+        <div class="card" onclick="navigateTo('saudade')">
+          <span class="room-number">SALA 02</span>
+          <h2>Saudade</h2>
+          <p>A presença da ausência. O espaço que alguém ou algo deixa em nós.</p>
+          <span class="explore-link">Entrar na sala &rarr;</span>
+        </div>
+
+        <div class="card" onclick="navigateTo('amor')">
+          <span class="room-number">SALA 03</span>
+          <h2>Amor</h2>
+          <p>A gravidade invisível que conecta duas existências no mesmo instante.</p>
+          <span class="explore-link">Entrar na sala &rarr;</span>
+        </div>
+
+        <div class="card" onclick="navigateTo('memorias')">
+          <span class="room-number">SALA 04</span>
+          <h2>Memórias</h2>
+          <p>O arquivo vivo da alma. Deixe também o seu registro no acervo.</p>
+          <span class="explore-link">Entrar na sala &rarr;</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÁGINA 2: NOSTALGIA -->
+    <section id="nostalgia" class="page">
+      <div class="room-header">
+        <span class="subtitle">SALA 01 • O TEMPO DOURADO</span>
+        <h1>Nostalgia</h1>
+      </div>
+      <div class="exhibit-content">
+        <blockquote class="quote">
+          “A nostalgia é a maneira que o coração encontra de revisitar lugares que não existem mais no mapa, apenas dentro de nós.”
+        </blockquote>
+        <div class="artifacts">
+          <div class="artifact-item">
+            <h3>Peça #104 — Luz de Fim de Tarde</h3>
+            <p>Aquele tom alaranjado que entrava pela janela da infância enquanto o som distante da rua anunciava o fim do dia.</p>
+          </div>
+          <div class="artifact-item">
+            <h3>Peça #108 — Fitas e Fotografias Desbotadas</h3>
+            <p>Registros imperfeitos que guardam sorrisos espontâneos antes da pressa do mundo moderno.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÁGINA 3: SAUDADE -->
+    <section id="saudade" class="page">
+      <div class="room-header">
+        <span class="subtitle">SALA 02 • A PRESENÇA DA AUSÊNCIA</span>
+        <h1>Saudade</h1>
+      </div>
+      <div class="exhibit-content">
+        <blockquote class="quote">
+          “Saudade não é vazio; é o transbordamento de tudo o que foi bom demais para caber apenas no passado.”
+        </blockquote>
+        <div class="artifacts">
+          <div class="artifact-item">
+            <h3>Peça #201 — A Cadeira Vazia</h3>
+            <p>O eco de uma conversa interrompida e o hábito de olhar para a porta esperando alguém chegar.</p>
+          </div>
+          <div class="artifact-item">
+            <h3>Peça #215 — Cartas Não Enviadas</h3>
+            <p>Palavras escritas no silêncio da madrugada que carregam tudo o que o tempo não permitiu dizer.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÁGINA 4: AMOR -->
+    <section id="amor" class="page">
+      <div class="room-header">
+        <span class="subtitle">SALA 03 • O ENCONTRO</span>
+        <h1>Amor</h1>
+      </div>
+      <div class="exhibit-content">
+        <blockquote class="quote">
+          “Amar é reconhecer no outro um abrigo onde a alma pode descansar sem precisar usar armaduras.”
+        </blockquote>
+        <div class="artifacts">
+          <div class="artifact-item">
+            <h3>Peça #302 — O Primeiro Olhar</h3>
+            <p>O segundo exato em que dois estranhos percebem que já se conheciam antes mesmo de falar.</p>
+          </div>
+          <div class="artifact-item">
+            <h3>Peça #319 — O Silêncio Compartilhado</h3>
+            <p>Quando estar ao lado de alguém basta para transformar um dia comum em algo inesquecível.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PÁGINA 5: MEMÓRIAS (COM INTERATIVIDADE) -->
+    <section id="memorias" class="page">
+      <div class="room-header">
+        <span class="subtitle">SALA 04 • ARQUIVO COLETIVO</span>
+        <h1>Memórias</h1>
+        <p class="room-desc">Deixe um sentimento ou lembrança eternizada nas paredes deste museu.</p>
+      </div>
+
+      <form id="memory-form" class="memory-form">
+        <input type="text" id="author-input" placeholder="Seu nome (ou Anônimo)" required>
+        <select id="feeling-select">
+          <option value="Nostalgia">Nostalgia</option>
+          <option value="Saudade">Saudade</option>
+          <option value="Amor">Amor</option>
+          <option value="Memória">Memória</option>
+        </select>
+        <textarea id="memory-input" rows="3" placeholder="Escreva sua lembrança ou sentimento..." required></textarea>
+        <button type="submit" class="btn-submit">Arquivar no Museu</button>
+      </form>
+
+      <div id="memories-wall" class="memories-wall">
+        <!-- Memórias iniciais -->
+        <div class="memory-note">
+          <span class="tag">Saudade</span>
+          <p>“O cheiro de café coado na casa da minha avó nas manhãs de domingo.”</p>
+          <small>— Clara M.</small>
+        </div>
+        <div class="memory-note">
+          <span class="tag">Amor</span>
+          <p>“O dia em que rimos no meio da chuva sem nos importar em chegar atrasados.”</p>
+          <small>— Lucas R.</small>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Museu dos Sentimentos &copy; 2026 — Curadoria de Emoções Humanas</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
